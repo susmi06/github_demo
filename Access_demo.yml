@@ -8,6 +8,9 @@ jobs:
    - name: checkout repo
      uses: actions/checkout@v2
 
-   - name:  list repos
+   - name:  message
+     run: |
+       Welcome to github actions
+       
      
 
