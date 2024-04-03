@@ -1,4 +1,4 @@
-choname: add user to repo
+name: add user to repo
 on:
   workflow_dispatch:
 jobs:
@@ -9,7 +9,7 @@ jobs:
        uses: actions/checkout@v2
 
      - name:  message
-       run: 
+       run: |
         echo  "Welcome to github actions"
        
      
