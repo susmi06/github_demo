@@ -1,14 +1,11 @@
-name: add 
+name: Hello World 
 on:
   workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-     - name: checkout repo
-       uses: actions/checkout@v2
-
-     - name:  message
-       run: |
-        echo  "Welcome to github actions"
+       - name:  message
+         run: |
+          echo  "Welcome to github actions"
        
