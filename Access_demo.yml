@@ -1,1 +1,7 @@
+name: add user to repo
+on:
+  workflow_dispatch:
+jobs:
+  runs:
+    runs-on: ubuntu-latest
 
