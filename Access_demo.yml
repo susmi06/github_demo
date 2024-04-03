@@ -1,16 +1,16 @@
-name: add user to repo
+choname: add user to repo
 on:
   workflow_dispatch:
 jobs:
-    build:
+  build:
     runs-on: ubuntu-latest
     steps:
-   - name: checkout repo
-     uses: actions/checkout@v2
+     - name: checkout repo
+       uses: actions/checkout@v2
 
-   - name:  message
-     run: 
-       Welcome to github actions
+     - name:  message
+       run: 
+        echo  "Welcome to github actions"
        
      
 
