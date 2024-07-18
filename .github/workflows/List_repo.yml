@@ -14,7 +14,7 @@ jobs:
             page=1
             touch repolist.txt
             while :; do
-              repos=$(curl -s -H "Authorization: token ${{ variables.token_learning }}" \
+              repos=$(curl -s -H "Authorization: token ${{ secrets.secret_token }}" \
               "https://api.github.com/orgs/$org/repos?page=$page&per_page=100" | jq -r '.[] | .name' | tr -d '"')
               
               if [ -z "$repos" ]; then
