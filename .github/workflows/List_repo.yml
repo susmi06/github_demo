@@ -14,7 +14,7 @@ jobs:
             touch repo_list.txt
             
               repos=$(curl -s -H "Authorization: token ${{ secrets.secret_token }}" \
-               "https://api.github.com/orgs/$org/actions/cache/usage-by-repository" )
+                "https://api.github.com/orgs/$org/repos?page=1" )
               
               echo "$repos" >> repo_list.txt
               
