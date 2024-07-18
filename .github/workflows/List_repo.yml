@@ -1,1 +1,28 @@
-xc
+name: list repos
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  listrepos:
+    runs-on: [self-hosted, x64, linux, provisioning-essentials, nonprod]
+    steps:
+        - name: Fetch list of repos
+          run: |
+            org="jhdevops"
+            page=1
+            touch repolist.txt
+            while :; do
+              repos=$(curl -s -H "Authorization: token ${{  }}" \
+              "https://api.github.com/orgs/$org/repos?page=$page&per_page=100" | jq -r '.[] | .name' | tr -d '"')
+              
+              if [ -z "$repos" ]; then
+                  break
+              fi
+              echo "$repos" >> repo_list.txt
+              page=$((page + 1))
+            done
+            cat repo_list.txt
+         
+      
