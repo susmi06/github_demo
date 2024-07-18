@@ -11,18 +11,14 @@ jobs:
         - name: Fetch list of repos
           run: |
             org="jhdevops"
-            page=1
-            touch repolist.txt
-            while :; do
+            touch repo_list.txt
+            
               repos=$(curl -s -H "Authorization: token ${{ secrets.secret_token }}" \
-              "https://api.github.com/orgs/$org/repos?page=$page&per_page=100" | jq -r '.[] | .name' | tr -d '"')
+              "https://api.github.com/orgs/$org/repos?page=1")
               
-              if [ -z "$repos" ]; then
-                  break
-              fi
               echo "$repos" >> repo_list.txt
-              page=$((page + 1))
-            done
+              
+            
             cat repo_list.txt
          
       
