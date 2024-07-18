@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   listrepos:
-    runs-on: [self-hosted, x64, linux, provisioning-essentials, nonprod]
+    runs-on: ubuntu-latest
     steps:
         - name: Fetch list of repos
           run: |
