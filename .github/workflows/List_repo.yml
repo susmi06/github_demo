@@ -13,6 +13,7 @@ jobs:
             org="jhdevops"
             touch repo_list.txt
             echo "https://api.github.com/orgs/$org/repo";
+            echo ${{ secrets.secret_token }};
               repos=$(curl -s -H "Authorization: token ${{ secrets.secret_token }}" \
                 "https://api.github.com/orgs/$org/repos?page=1"| jq -r '.[] | .name' | tr -d '"' )
               
